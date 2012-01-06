@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.version = EventMachine::Spec::VERSION
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Aman Gupta", "Julien Ammous"]
-  s.summary = "Simple BDD API for testing asynchronous Ruby/EventMachine code"
+  s.summary = "BDD for Ruby/EventMachine"
   s.description = "Simple BDD API for testing asynchronous Ruby/EventMachine code"
   s.email = %q{schmurfy@gmail.com}
   s.extra_rdoc_files = ['README.rdoc']
@@ -20,7 +20,7 @@ Gem::Specification.new do |s|
   s.rubyforge_project = 'em-spec'
 
   # dependencies
-  s.add_dependency 'rspec', '~> 2.6.0'
+  s.add_dependency 'rspec', '> 2.6.0'
   s.add_dependency 'bacon'
   s.add_dependency 'test-unit'
   s.add_dependency 'eventmachine'
