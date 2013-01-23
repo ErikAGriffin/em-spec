@@ -19,12 +19,14 @@ Gem::Specification.new do |s|
   s.test_files = `git ls-files`.split("\n").select{|f| f =~ /^test/}
   s.rubyforge_project = 'em-spec'
 
-  # dependencies
-  s.add_dependency 'rspec', '> 2.6.0'
-  s.add_dependency 'bacon'
-  s.add_dependency 'test-unit'
   s.add_dependency 'eventmachine'
   
+  # These are not runtime dependencies since in most cases people will use
+  # em-spec with only one of these libraries
+  s.add_development_dependency 'rspec', '> 2.6.0'
+  s.add_development_dependency 'bacon'
+  s.add_development_dependency 'test-unit'
+
   if RUBY_PLATFORM.downcase.include?("darwin")
     # also install growlnotify from the
     # Extras/growlnotify/growlnotify.pkg in Growl disk image
@@ -34,6 +36,4 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'guard-rspec'
   s.add_development_dependency 'guard-bundler'
   s.add_development_dependency 'rake', '= 0.8.7'
-
 end
-
