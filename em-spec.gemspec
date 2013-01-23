@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.email = %q{schmurfy@gmail.com}
   s.extra_rdoc_files = ['README.rdoc']
   s.files = `git ls-files`.split("\n")
-  s.homepage = %q{http://github.com/schmurfy/em-spec}
+  s.homepage = %q{https://github.com/joshbuddy/em-spec}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.7}
