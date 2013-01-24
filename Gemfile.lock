@@ -2,10 +2,7 @@ PATH
   remote: .
   specs:
     em-spec (0.2.6)
-      bacon
       eventmachine
-      rspec (> 2.6.0)
-      test-unit
 
 GEM
   remote: http://rubygems.org/
@@ -37,8 +34,11 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bacon
   em-spec!
   growl
   guard-bundler
   guard-rspec
   rake (= 0.8.7)
+  rspec (> 2.6.0)
+  test-unit
