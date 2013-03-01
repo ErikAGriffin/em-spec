@@ -33,7 +33,7 @@ module EventMachine
     end
 
     def timeout(time_to_run)
-      EM.cancel_timer(@_em_timer) if @_em_timer
+      EM.cancel_timer(@_em_timer) if defined? @_em_timer
       @_em_timer = EM.add_timer(time_to_run) { done('timeout exceeded') }
     end
 
