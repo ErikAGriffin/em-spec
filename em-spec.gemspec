@@ -10,10 +10,8 @@ Gem::Specification.new do |s|
   s.summary = "BDD for Ruby/EventMachine"
   s.description = "Simple BDD API for testing asynchronous Ruby/EventMachine code"
   s.email = %q{schmurfy@gmail.com}
-  s.extra_rdoc_files = ['README.rdoc']
   s.files = `git ls-files`.split("\n")
   s.homepage = %q{https://github.com/joshbuddy/em-spec}
-  s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.7}
   s.test_files = `git ls-files`.split("\n").select{|f| f =~ /^test/}
