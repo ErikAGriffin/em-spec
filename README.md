@@ -1,11 +1,17 @@
-Simple BDD API for testing asynchronous Ruby/EventMachine code
-(c) 2008 Aman Gupta (tmm1)
+# Simple BDD API for testing asynchronous Ruby/EventMachine code
 
-em-spec can be used with either bacon, test unit or rspec.
+`em-spec` can be used with either bacon, test unit or rspec.
 
-=Rspec
-There are two ways to use the Rspec extension.  To use it as a helper, include EM::SpecHelper in your describe block.  You then use the em method to wrap your evented test code.  Inside the em block, you must call #done after your expectations.  Everything works normally otherwise.
+## Rspec
+There are two ways to use with the Rspec gem.
 
+To use it as a helper, include `EM::SpecHelper` in your describe block.
+You then use the `em` method to wrap your evented test code.
+
+Inside the `em` block, you must call `done` after your expectations.
+Everything works normally otherwise.
+
+```ruby
   require "em-spec/rspec"
   describe EventMachine do
     include EM::SpecHelper
@@ -25,7 +31,13 @@ There are two ways to use the Rspec extension.  To use it as a helper, include E
       end
     end
   end
-The other option is to include EM::Spec in your describe block.  This will patch Rspec so that all of your examples run inside an em block automatically:
+```
+
+The other option is to include `EM::Spec` in your describe block.
+
+This will patch Rspec so that all of your examples run inside an `em` block automatically:
+
+```ruby
   require "em-spec/rspec"
   describe EventMachine do
     include EM::Spec
@@ -44,10 +56,14 @@ The other option is to include EM::Spec in your describe block.  This will patch
       }
     end
   end
+```
 
-=Bacon
-The API is identical to Bacon, except that you must explicitly call 'done' after all the current behavior's assertions have been made:
+## Bacon
 
+The API is identical to Bacon, except that you must explicitly call `done`
+after all the current behavior's assertions have been made:
+
+```ruby
   require 'em-spec/bacon'
 
   EM.describe EventMachine do
@@ -75,14 +91,23 @@ The API is identical to Bacon, except that you must explicitly call 'done' after
     end
 
   end
+```
 
-=Test::Unit
-There are two ways to use the Test::Unit extension.  To use it as a helper, include EM::TestHelper in your test unit class.  You then use the em method to wrap your evented test code.  Inside the em block, you must call #done after your expectations.  Everything works normally otherwise.
+## `Test::Unit`
 
+There are two ways to use the `Test::Unit` extension.
+
+To use it as a helper, include `EM::TestHelper` in your test unit class.
+
+You then use the em method to wrap your evented test code.
+
+Inside the em block, you must call `done` after your expectations.
+Everything works normally otherwise.
+
+```ruby
   require 'em-spec/test'
 
   class EmSpecHelperTest < Test::Unit::TestCase
-    
     include EventMachine::TestHelper
   
     def test_trivial
@@ -92,9 +117,14 @@ There are two ways to use the Test::Unit extension.  To use it as a helper, incl
       end
     end
   end
-  
-The other option is to include EM::Test in your test class.  This will patch Test::Unit so that all of your examples run inside an em block automatically:
+```
 
+The other option is to include `EM::Test` in your test class.
+
+This will patch `Test::Unit` so that all of your examples run inside an
+`em` block automatically:
+
+```ruby
   require 'em-spec/test'
 
   class EmSpecTest < Test::Unit::TestCase
@@ -110,9 +140,8 @@ The other option is to include EM::Test in your test class.  This will patch Tes
       }
     end
   end
+```
 
-Resources:
+## Resources
 
-* Git repository: http://github.com/tmm1/em-spec
-* Bacon: http://groups.google.com/group/comp.lang.ruby/browse_thread/thread/30b07b651b0662fd
-* Initial announcement: http://groups.google.com/group/eventmachine/browse_thread/thread/8b4e7ead72f9d013
+* [Bacon](http://groups.google.com/group/comp.lang.ruby/browse_thread/thread/30b07b651b0662fd)
