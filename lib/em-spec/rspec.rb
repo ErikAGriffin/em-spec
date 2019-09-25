@@ -52,15 +52,14 @@ module EventMachine
       EM.stop_event_loop if EM.reactor_running?
       @_em_spec_fiber.resume if @_em_spec_fiber.alive?
     end
-    
+
   end
 
   module Spec
-    
-    include SpecHelper
 
     def self.append_features(mod)
       mod.class_eval <<-RUBY, __FILE__, __LINE__ + 1
+        include SpecHelper
         around(:all) do |example|
           em do
             example.run
@@ -73,5 +72,3 @@ module EventMachine
 
 
 end
-
-
