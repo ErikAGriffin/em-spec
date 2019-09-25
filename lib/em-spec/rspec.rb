@@ -54,19 +54,24 @@ module EventMachine
     end
     
   end
-  
-  module Spec
 
+  module Spec
+    
     include SpecHelper
 
-    def instance_eval(&block)
-      em do
-        super(&block)
-      end
+    def self.append_features(mod)
+      mod.class_eval <<-RUBY, __FILE__, __LINE__ + 1
+        around(:all) do |example|
+          em do
+            example.run
+          end
+        end
+      RUBY
     end
 
   end
-  
+
+
 end
 
 
